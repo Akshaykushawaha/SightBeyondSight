@@ -20,4 +20,4 @@ requests-oauthlib==1.3.1
 flask_bootstrap==3.3.7.1
 flask_wtf==1.1.1
 wtform==3.0.1
-redis=4.5.1
+redis==4.5.1
