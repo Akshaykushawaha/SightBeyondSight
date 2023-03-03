@@ -12,8 +12,7 @@ import speech_recognition as sr
 from google.cloud import vision
 from google.cloud.vision_v1 import types
 # Set up the credentials for the client
-
-openai.api_key = "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"
+import openai.api_key from config
 
 
 def extr1(URL):
