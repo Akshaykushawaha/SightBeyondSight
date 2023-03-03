@@ -11,7 +11,7 @@ import pyttsx3
 from playsound import playsound
 import redis
 
-engine = pyttsx3.init()
+engine = pyttsx3.init("dummy")
 
 app = Flask(__name__)
 
