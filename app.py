@@ -97,4 +97,4 @@ def index():
 
 # keep this as is
 if __name__ == '__main__':
-    app.run(port=81)
+    app.run()
