@@ -1,0 +1,109 @@
+{% extends 'bootstrap/base.html' %} {% import "bootstrap/wtf.html" as wtf %} {%
+block styles %} {{ super() }}
+<style>
+  body {
+    background: #e8f1f9;
+  }
+</style>
+<link rel="stylesheet" href="{{url_for('.static', filename='main.css')}}" />
+{% endblock %} {% block scripts %}
+<script src="{{url_for('.static', filename='main.js')}}"></script>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=4eVY86Ho"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script
+  type="text/javascript"
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
+></script>
+{{super()}} {% endblock %} {% block title %} Sight Beyond Sight {% endblock %}
+{% block content %} {% block metas %}
+<meta name="color-scheme" content="light blue dark" />
+{% endblock %}
+
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="#"
+        ><img
+          id="logo"
+          src="../static/web/png/logo.png"
+          alt="Sight Beyond Sight"
+          style="width: 150px"
+      /></a>
+    </div>
+    <div class="row">
+      <div class="heading">
+        <h2>Hello, welcome to Sight beyond Sight</h2>
+        <h3>An AI solution for the visually impaired</h3>
+      </div>
+    </div>
+    <div class="input-field" style="color: white">
+        {{ wtf.quick_form(form, button_map={'submit': 'primary'},
+        form_type='horizontal') }}
+      <p style="font-size: x-large">{{ message }}</p>
+    </div>
+  </div>
+
+  <div class="output" style="
+  display: flex; flex-direction: column; padding-top: 40px; padding-bottom: 40px; text-align: center;">
+    {% if text %}
+    <p id="loading"></p>
+    {% else %}
+    <p id="content" style="padding: 20px; font-size: x-large;">{{ sum }}</p>
+    {% endif %}
+
+    {% if audio %}
+    <div style="">
+          <audio
+            controls
+            autoplay
+          >
+            <source
+              src="{{ audio }}"
+              type="audio/mpeg"
+            />
+          </audio>
+    </div>
+    {% endif %}
+
+    {% if audImg %}
+        <div style="">
+          <audio
+            controls
+            autoplay
+          >
+            <source
+              src="{{ audImg }}"
+              type="audio/mpeg"
+            />
+          </audio>
+        </div>
+    {% endif %}
+  </div>
+
+
+</body>
+
+<footer class="footer">
+  <div class="row-footer">
+    <div class="col-md-4">
+      <h4>About Us</h4>
+      <p>
+        We are a team of developers dedicated to creating innovative solutions
+        for the visually impaired.
+      </p>
+    </div>
+    <div class="col-md-4">
+      <h4>Contact Us</h4>
+      <p>Email: info@sightbeyondsight.com</p>
+      <p>Phone: 555-555-5555</p>
+    </div>
+    <div class="col-md-4">
+      <h4>Follow Us</h4>
+      <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+      <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+      <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+    </div>
+  </div>
+</footer>
+
+{% endblock %}
