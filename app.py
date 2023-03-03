@@ -12,7 +12,7 @@ from playsound import playsound
 import redis
 import speech_recognition as sr
 
-engine = pyttsx3.init("dummy")
+engine = pyttsx3.init()
 
 app = Flask(__name__)
 global voice_summary
@@ -135,4 +135,4 @@ def voice_input():
 
 # keep this as is
 if __name__ == '__main__':
-    app.run()
+    app.run(port=81)
