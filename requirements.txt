@@ -25,4 +25,4 @@ openai==0.27.0
 SpeechRecognition==3.9.0
 google-cloud==0.34.0
 google-cloud-vision==3.4.0
-speake3==0.3
+pyespeak==0.3
