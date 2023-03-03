@@ -278,13 +278,6 @@ h3 {
     text-align: center;
 }
 
-
-.footer {
-    color: #fff;
-    
-    max-height: 6rem;
-}
-
 .footer h4 {
     margin-bottom: 20px;
 }
@@ -314,6 +307,7 @@ h3 {
     justify-content: center;
     margin: 0 !important;
     height: 30em;
+    background-color: black;
 }
 
 

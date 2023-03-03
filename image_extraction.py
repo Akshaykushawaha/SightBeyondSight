@@ -60,7 +60,7 @@ def download_images(images):
                 except UnicodeDecodeError:
 
                     # After checking above condition, Image Download start
-                    with open(f"./images/images{i+1}.jpg", "wb+") as f:
+                    with open(f"./images/z{i+1}.jpg", "wb+") as f:
                         f.write(r)
 
                     # counting number of image downloaded

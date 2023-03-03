@@ -14,6 +14,60 @@ block styles %} {{ super() }}
   type="text/javascript"
   src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
 ></script>
+<script type="text/javascript">
+  var recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = false;
+  window.addEventListener("keydown", (event) => {
+      if (event.code === "Space") {
+        console.log("Space pressed");
+        recognition.start();
+      }
+    })
+
+  // window.addEventListener("keyup", (event) => {
+  //     if (event.code === "Space") {
+  //       console.log("Space released");
+  //       recognition.stop();
+  //     }
+  //   })
+
+    recognition.onresult = function (event) {
+        // Get recognized text
+        console.log("inside onresult")
+        var t = event.results[0][0].transcript;
+        var o1 = ""
+        var o2 = ""
+      // console.log("inside onresult text", text)
+        // Send text to server using AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/voice-input", true);
+        xhr.setRequestHeader("Content-Type", "audio/wav");
+        console.log("inside onresult blob", event.results[0][0].blob)
+        xhr.send(t);
+
+        xhr.onreadystatechange = (e) => {
+        if (xhr.readyState !== 4) {
+          return;
+        }
+
+        if (xhr.status === 200) {
+          console.log('SUCCESS', xhr.responseText);
+          o1 = xhr.responseText
+          var ele = document.getElementById("display")
+          ele.innerHTML = o1
+
+          // callback(JSON.parse(xhr.responseText));
+        } else {
+          console.warn('request_error');
+        }
+      };
+
+        
+        // Display text on website
+      };
+
+</script>
 {{super()}} {% endblock %} {% block title %} Sight Beyond Sight {% endblock %}
 {% block content %} {% block metas %}
 <meta name="color-scheme" content="light blue dark" />
@@ -52,7 +106,7 @@ block styles %} {{ super() }}
     {% endif %}
 
     {% if audio %}
-    <div style="">
+    <div>
           <audio
             controls
             autoplay
@@ -64,35 +118,21 @@ block styles %} {{ super() }}
           </audio>
     </div>
     {% endif %}
-
-    {% if audImg %}
-        <div style="">
-          <audio
-            controls
-            autoplay
-          >
-            <source
-              src="{{ audImg }}"
-              type="audio/mpeg"
-            />
-          </audio>
-        </div>
-    {% endif %}
   </div>
 
-
+  <p id="display" style="display: flex; flex-direction: column; font-size: x-large; text-align: center;"></p>
 </body>
 
 <footer class="footer">
   <div class="row-footer">
-    <div class="col-md-4">
+    <div class="col-md-4" style="color: white">
       <h4>About Us</h4>
       <p>
         We are a team of developers dedicated to creating innovative solutions
         for the visually impaired.
       </p>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" style="color: white">
       <h4>Contact Us</h4>
       <p>Email: info@sightbeyondsight.com</p>
       <p>Phone: 555-555-5555</p>

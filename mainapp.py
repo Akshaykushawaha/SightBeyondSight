@@ -7,13 +7,13 @@ import bs4
 import urllib
 import requests
 import image_extraction
-
+import speech_recognition as sr
 # Import the Google Cloud client library
 from google.cloud import vision
 from google.cloud.vision_v1 import types
 # Set up the credentials for the client
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 def extr1(URL):
@@ -58,7 +58,7 @@ def extr2(URL):
             os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./analog-memento-378717-70bbf05aff2d.json"
             # Instantiate a client
             client = vision.ImageAnnotatorClient()
-            with open(f"./images/images{i+1}.jpg", "rb") as image_file:
+            with open(f"./images/z{i+1}.jpg", "rb") as image_file:
                 content = image_file.read()
                 # Convert the image data to a Vision API readable format
                 image = types.Image(content=content)
@@ -124,6 +124,62 @@ def extr2(URL):
         img_desc = "0"
     return img_desc
 
+
+def extr3(summary, user_input, valid):
+
+    print("what is summary ", summary)
+    if (valid == 1):
+        prompt = (
+            f"{summary}\n\nin context to the given paragraph, solve the query :{user_input}")
+        params = {
+            "model": "text-davinci-003",
+            "prompt": prompt,
+            "temperature": 0.5,
+            "max_tokens": 1000,
+            "top_p": 1,
+            "frequency_penalty": 0,
+            "presence_penalty": 0
+        }
+
+        # Make the API request
+        response = openai.Completion.create(**params)
+
+        # Print the summary
+        summary = response.choices[0].text.strip()
+        #summary = cl.summarize(str(data1))
+        print(summary, "from voice")
+        return summary
+    if (valid == 0):
+        return user_input
+
+
+# def voice_control(summary, request):
+#     # Initialize SpeechRecognition object
+#     r = sr.Recognizer()
+
+#     # Get audio from request
+#     audio = sr.AudioData(request.data, sample_rate=16000)
+
+#     print("Recognizing...")
+
+#     # Use SpeechRecognition to recognize speech
+#     try:
+#         print("Recognized try: ")
+#         text = r.recognize_google(audio)
+#         print(text, "from voice recongnition try")
+#         ans = 1
+#     except sr.UnknownValueError:
+#         text = 'Sorry, I did not understand that.'
+#         ans = 0
+#     except sr.RequestError:
+#         text = 'Sorry, there was an error processing your request.'
+#         ans = 0
+
+#     print("going to call extr3")
+#     # Return recognized text
+#     return extr3(summary, text, ans)
+
 # enter website url
 # extr1("https://digit.in")
 # extr2("https://digit.in")
+# extr3("Digit.in is a popular technology media portal in India that helps users decide what tech products to buy. They do this through testing thousands of products in their two test labs in Noida and Mumbai, providing unbiased buying advice to millions of Indians. Digit is also about leadership and grooming new leaders for the media industry.","what is product testing",1)
