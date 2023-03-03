@@ -13,7 +13,7 @@ from google.cloud import vision
 from google.cloud.vision_v1 import types
 # Set up the credentials for the client
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 def extr1(URL):
