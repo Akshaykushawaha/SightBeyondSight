@@ -16,8 +16,7 @@ from google.cloud.vision_v1 import types
 from dotenv import load_dotenv
 load_dotenv()
 
-openai.api_key = os.getenv("api_key")
-
+openai.api_key = os.getenv("API_KEY")
 
 def extr1(URL):
 
