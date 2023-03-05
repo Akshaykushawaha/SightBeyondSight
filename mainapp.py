@@ -18,6 +18,7 @@ load_dotenv()
 
 openai.api_key = os.getenv("api_key")
 
+
 def extr1(URL):
 
     #cl = cohere.Client(api_key="oVlWuiwtuqQMzgwC036yy65HjKlBQ3pdgDWd2kQS")
