@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "analog-memento-378717",
+  "private_key_id": "70bbf05aff2dbb885e0b8674e7328b1d73fbc27f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQD7ymvbikbTTeFQ\nDJ6T44WoEBRHJ2jFdGOfOf67lLdya/sqvS9bvSK6ZAbMR94lC2F2p20ZWEuw/Obe\nB4l32dh7bsUROLsaNk2PYM/n13ZGcEHjeF9dnl53JhpCKEMwc0JsPJ9NapvUQKhG\nQODNYNqZHxJPSfCTweCcoNzw5NX9Tsnn+0YhEdVBZVI6y+13OF/ePh0Rw2JcRlzN\nEIDCcTirjnkpbg5m2KqK8i3/lJef28/7NX2bjB+BPdo4We4kI40HIAl5eN4RsSho\naGlLTKtBc/vJVrWYzl8JU5w2qDI3FaNJ6x5zOQQViMerORmStXunYcnPkO8vT6oa\nksUrB5xPAgMBAAECggEAeXLCoYtJ7EQFaLIdjyHQZycSUNvOamdgYf38Q4hRD8zL\nwmqsPCi3ZoY2zTPhD6c0pKHPOslfAQiLZw7lnLyj8a2VOmBNxy/oKz88KQzBTOp6\nrXhzL1njIL9tLPn0ppsBr+lxwUqpzTA+ulwy0n1kEzVshHgapXp/l6zzxPHr0ZjJ\nVv4U3waeapvqeJ+pM8XD5yMxcR10J9LUV4nki2zMWthqMCAskDLnHfOLFK0kjKEO\nGkzTECozpH4GC+S1BDmjd3OeNMS1G5udZegROdIQj+HaNEdcc5A18Ki5jbpeqWO8\n1NnuGtUon9BduRHSrtXjteOx0BbhAIrr5WqKwz31+QKBgQD/tnDDRauQIsCb3BAN\nPB34XNs5FWHXFJzY2YF6TDGJ/FHK64mDBf/KlT4NJFMvYZYzaBOT1un1I99Fe7dp\nPDNhgZhNtnpXzg7o5esxtEELA8XAaIGhwMMcw1jYSvWxZX30wvb4KDdtzeSsPwKu\n4Am8GfbPZlIYYm+Vma3IT3Ib0wKBgQD8EtpGHBX+nvHEuWcs996+5YPD/IUBRaVR\nsIBsTi7W4Ud5wFkCvxOw+UkwJxRWZ3rip+Ouhy4oI9+JS184x/n0ls/FmzUPdyyu\n0ZMljC7b84L8TGMkhOycO2GjXo7kI9hezzOuqBRbBAC9q+srA7crtX5qtspkCKaL\nkGpofvbcFQKBgQDe7QAVXLGasJFVz123DAfcs6bydu+a//9VFRnJso8linEMBJcX\nQK2kwMMd1eMnVV4KZttacWv5KFLHUnmtJqxsfvx2E3VJAv0AkSCfblOd9KX7faA1\nkcUHWE4mEgNrqd1K+oUwBm98LJkEiNIf/nS+JayDVuKPG5HHy/gyvv/tvQKBgQCr\n0DXS38XmHXRxQGYg8npy54Gejnoh2dTLD2EZcVjfwgGz7PU+t/q1/9Rw69Ii6rmJ\n0CGSjjVZysnMjQFEdJncqwbHi/jop7RfHB4N07UE2sAHNBHHjIqyGo98iTEgM4aB\naP2zKIFnYB0ZKxtJ4GhzdGvMVPcyo+rQ6gh9XTzp2QKBgCEx41Ir/Ng0FVUD4IOC\nkmXxQ8PMntuQCe47IZhjns+9kc5DY9pyfII/WnryOM3K49HyNMJWSTJCaZbWDMT1\nu0Lss4s5RbciOkFRqNsNI+yyZfVlAJZ5Y0msYSoXENKonOa3dlXCo4F+uhvc+R2r\n50JJzhDnP9AhLbYg//I1t6sX\n-----END PRIVATE KEY-----\n",
+  "client_email": "akshay@analog-memento-378717.iam.gserviceaccount.com",
+  "client_id": "110258434172179888466",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/akshay%40analog-memento-378717.iam.gserviceaccount.com"
+}

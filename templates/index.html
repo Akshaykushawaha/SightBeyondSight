@@ -89,6 +89,30 @@ block styles %} {{ super() }}
         <h2>Hello, welcome to Sight beyond Sight</h2>
         <h3>An AI solution for the visually impaired</h3>
       </div>
+      <div class="heading" style="display: flex; flex-direction: column;">
+        <h4>Try one of these websites for best results</h4>
+        <div class="copy-box" style="margin: 10px;">
+          <input
+            type="text"
+            value="https://tinkering.xyz/nix-docs/"
+            id="myInput"
+            readonly
+          >
+          <!-- The button used to copy the text -->
+          <button onclick="myFunction()">Copy link</button>
+        </div>
+
+        <div class="copy-box" style="margin: 10px;">
+                  <input
+                    type="text"
+                    value="https://tinybuddha.com/blog/8-things-not-say-someone-whos-struggling-anxiety/"
+                    id="myInput"
+                    readonly
+                  >
+                  <!-- The button used to copy the text -->
+                  <button onclick="myFunction()">Copy link</button>
+        </div>
+      </div>
     </div>
     <div class="input-field" style="color: white">
         {{ wtf.quick_form(form, button_map={'submit': 'primary'},
