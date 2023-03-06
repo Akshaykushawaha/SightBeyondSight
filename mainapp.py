@@ -13,8 +13,8 @@ from google.cloud import vision
 from google.cloud.vision_v1 import types
 # Set up the credentials for the client
 
-a="sk-ZTQy3h7O4HGmGbVVUC"
-b="mbT3BlbkFJiUEivvd6i7ZHmOGnNvPl"
+a="sk-2OMvh8myerfv5tyVAxFRT3B"
+b="lbkFJ9hrJCTRLQMe6fghFRkND"
 
 
 openai.api_key = a+b
