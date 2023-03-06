@@ -1,22 +1,30 @@
 from flask import Flask, render_template, redirect, url_for, Response, request
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
-from gtts import gTTS
+#from gtts import gTTS
 from datetime import datetime
 import shutil
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from mainapp import extr1, extr2, extr3
-import pyttsx3
+#import pyttsx3
 from playsound import playsound
 import redis
 import speech_recognition as sr
+import azure.cognitiveservices.speech as speechsdk
 
-engine = pyttsx3.init("dummy")
+#engine = pyttsx3.init("dummy")
 
 app = Flask(__name__)
 global voice_summary
 voice_summary = ""
+
+#setup - azure
+a = "1c1f41f37ab149fdb"
+b = "19ed0f26c350f2f"
+speech_key = a+b
+print(speech_key)
+speech_region = "eastus"
 
 # Flask-WTF requires an enryption key - the string can be anything
 app.config['SECRET_KEY'] = 'C2HWGVoMGfNTBsrYQg8EcMrdTimkZfAb'
@@ -82,13 +90,23 @@ def index():
             "Now you can ask me questions about the webpage by pressing spacebar once and speaking."
 
     # saving audio file for summary, to be played on webpage
-        gTTS(summary).save("./static/"+"sum.mp3")
+        #gTTS(summary).save("./static/"+"sum.mp3")
         # shutil.move(nm,"./static/"+nm)
+        speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=speech_region)
+        audio_config = speechsdk.audio.AudioOutputConfig(filename="./static/"+"sum.mp3")
+        speech_config.speech_synthesis_voice_name='en-US-JennyNeural'
+        speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
+        speech_synthesis_result = speech_synthesizer.speak_text_async(summary).get()
         audio_summary = "./static/"+"sum.mp3"
-
+        
         # saving audio file for image descriptions, to be played on webpage
-        gTTS(img_desc).save("./images/"+"img1.mp3")
+        #gTTS(img_desc).save("./images/"+"img1.mp3")
         # shutil.move(nm,"./static/"+nm)
+        speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=speech_region)
+        audio_config = speechsdk.audio.AudioOutputConfig(filename="./images/"+"img1.mp3")
+        speech_config.speech_synthesis_voice_name='en-US-JennyNeural'
+        speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
+        speech_synthesis_result = speech_synthesizer.speak_text_async(img_desc).get()
         audio_img = "./images/"+"img1.mp3"
         # print(audio_img, "from app.py")
 
@@ -135,4 +153,4 @@ def voice_input():
 
 # keep this as is
 if __name__ == '__main__':
-    app.run()
+    app.run(port=82)
